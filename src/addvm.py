@@ -44,6 +44,7 @@ class addVMC(Ui_addVM):
 
 
     def addButtonClick(self,window):
+        from util import saveConfig
         name=self.lineEdit_2.text().strip()
         if len(name) > 0:
             name=self.lineEdit_2.text()
@@ -72,7 +73,6 @@ class addVMC(Ui_addVM):
                     ops.append('-S')
                     p = subprocess.Popen(ops)
                     p.wait()
-            from util import saveConfig
             if self.startVMcheck.checkState():
                 self.datadict['RunVM'] = name
             window.close()
